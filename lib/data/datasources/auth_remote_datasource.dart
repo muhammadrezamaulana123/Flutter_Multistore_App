@@ -1,14 +1,12 @@
 import 'dart:convert';
 
 import 'package:dartz/dartz.dart';
-
+import 'package:flutter_fic7_app/common/global_variables.dart';
+import 'package:flutter_fic7_app/data/datasources/auth_local_datasource.dart';
+import 'package:flutter_fic7_app/data/models/auth_response_model.dart';
+import 'package:flutter_fic7_app/data/models/request/login_request_model.dart';
+import 'package:flutter_fic7_app/data/models/request/register_request_model.dart';
 import 'package:http/http.dart' as http;
-
-import '../../common/global_variables.dart';
-import '../models/auth_response_model.dart';
-import '../models/request/login_request_model.dart';
-import '../models/request/register_request_model.dart';
-import 'auth_local_datasource.dart';
 
 class AuthRemoteDatasource {
   Future<Either<String, AuthResponseModel>> register(

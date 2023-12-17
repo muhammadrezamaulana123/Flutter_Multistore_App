@@ -1,6 +1,5 @@
+import 'package:flutter_fic7_app/data/models/auth_response_model.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
-import '../models/auth_response_model.dart';
 
 class AuthLocalDatasource {
   Future<bool> saveAuthData(AuthResponseModel model) async {
@@ -20,13 +19,6 @@ class AuthLocalDatasource {
     final authJson = pref.getString('auth') ?? '';
     final authModel = AuthResponseModel.fromJson(authJson);
     return authModel.jwtToken;
-  }
-
-  Future<int> getUserId() async {
-    final SharedPreferences pref = await SharedPreferences.getInstance();
-    final authJson = pref.getString('auth') ?? '';
-    final authModel = AuthResponseModel.fromJson(authJson);
-    return authModel.user.id;
   }
 
   Future<bool> isLogin() async {
